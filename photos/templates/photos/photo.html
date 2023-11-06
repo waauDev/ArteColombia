@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Photo</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <link href="https://fonts.cdnfonts.com/css/archia" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{% static 'css/personalizado.css' %}">
+
+        <style>
+            /* Estilo personalizado para la galería */
+            .gallery-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        
+            .max-height-700px {
+                max-height: 700px;
+            }
+        </style>
+</head>
+
+<body class="m-5">
+    <div class="container">
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+
+                <a href="{% url "gallery" %}" class="btn btn-dark my-3">Go Back</a>
+                <div style="height: 90vh;" class="gallery-container">
+                    <img class="img-fluid max-height-700px" src="{{photo.image.url}}">
+                    <br>
+                    <a class="button-name" href="{{photo.image.url}}" target="_blank">Ampliar</a>
+                </div>
+            </div>
+            <div class="col-lg-6 mt-4">
+                <h1>{{photo.name}}</h1><br>
+                <p><strong>Artista:</strong> {{photo.author}}</p>
+                <p><strong>Técnica:</strong> Técnica de la Obra</p>
+                <p><strong>Museo:</strong> Nombre del Museo</p>
+                <p><strong>Fecha:</strong> {{photo.date}}</p>
+                <p><strong>País:</strong> País de Origen</p>
+                <br>
+                
+                <div class="descripcion-containera">
+                    <p class="descripcion">{{photo.description|linebreaks}}</p>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,182 @@
+{% load static %}
+{% block inicio %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    
+    <link href="https://fonts.cdnfonts.com/css/archia" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/personalizado.css' %}">
+	<script src="{% static 'js/script.js' %}"></script>
+
+    <style>
+        .image-thumbail {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .list-group-item a {
+            text-decoration: none;
+            color: black;
+
+        }
+    body{
+        font-family: 'Archia', sans-serif;
+    }
+    </style>
+</head>
+
+<header class="header">
+	<div class="logo">
+<!---->            <a href="{% url "home" %}"><img src="..\static\images\painter-on-canvas.png" alt="Logo de la marca"></a>
+	</div>
+	<nav>
+	   <ul class="nav-links">
+			<li><a href="#">Obras</a></li>
+			<li><a href="#">Artistas</a></li>
+			<li><a href="#">Movimientos</a></li>
+			<li><a href="#">Museos</a></li>
+	   </ul>            
+	</nav>
+
+<!---->        <a onclick="openNav()" class="menu" href="#"><button>Menu</button></a>
+
+<!---->        <div id="mobile-menu" class="overlay">
+<!---->            <a onclick="closeNav()" href="" class="close">&times;</a>
+<!---->            <div class="overlay-content">
+<!---->                <li><a href="#">Obras</a></li>
+					   <li><a href="#">Artistas</a></li>
+					   <li><a href="#">Movimientos</a></li>
+					   <li><a href="#">Museos</a></li>
+<!---->            </div>
+<!---->        </div>
+
+</header>
+
+{% endblock %}
+{% block content %}
+<body>
+<section class="light">
+	<div class="container py-2">
+		<div class="h1 text-center text-dark" id="pageHeaderTitle">Enciclopedia</div>
+		<article class="postcard light yellow">
+			<div class="postcard__text t-dark">
+				
+				<div class="text-body ly-text-body">
+				<p><strong>Historia/Arte</strong> en Colombia es una plataforma en línea que revela los tesoros desconocidos del mundo artístico colombiano. Nuestra meta es acercar el arte a un público más amplio y hacerlo más comprensible. Nos enfocamos en divulgar las maravillas del arte, ofreciendo información sobre artistas y obras de importancia histórica, con un enfoque educativo y didáctico que revela las joyas ocultas del patrimonio artístico de Colombia
+				</p>
+
+				<p>El sitio exhibe principalmente imágenes de contenido público, aunque puede incluir imágenes de obras de arte con derechos de autor.
+				Estas últimas imágenes se presentan siguiendo los siguientes criterios: </p>
+				
+				<ul>
+					<li>Todas las imágenes representan obras de arte con un valor histórico significativo.</li>
+					<li>Se utilizan exclusivamente con fines informativos y educativos.</li>
+					<li>Estas imágenes son de fácil acceso en línea.</li>
+					<li>Las imágenes se muestran en baja resolución y no se destinan a un uso comercial..</li>
+					
+				</ul>
+			
+					
+					
+			</div>
+		</article>
+
+		<article class="postcard light blue">
+			<a class="postcard__img_link" href="#">
+                <div class="image-container">
+				    <img class="postcard__img" src="{{random_photo.image.url}}"  alt="Image Title" />
+                </div>
+			</a>
+			<div class="postcard__text t-dark">
+				<h1 class="postcard__title blue"><a href="{% url 'gallery' %}">Obras</a></h1>
+
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">Adéntrate en el fascinante mundo de las obras de arte colombianas, donde podrás explorar detalladamente las creaciones más emblemáticas. Descubre el significado, la inspiración y el impacto de estas obras, que han dejado una huella indeleble en la historia artística de Colombia.</div>
+				<ul class="postcard__tagbox">
+					<li class="tag__item"><i class="fas fa-tag mr-2"></i>Podcast</li>
+					<li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+					<li class="tag__item play blue">
+						<a href="#"><i class="fas fa-play mr-2"></i>Play Episode</a>
+					</li>
+				</ul>
+			</div>
+		</article>
+		<article class="postcard light red">
+			<a class="postcard__img_link" href="#">
+				<img class="postcard__img" src="https://picsum.photos/501/500" alt="Image Title" />	
+			</a>
+			<div class="postcard__text t-dark">
+				<h1 class="postcard__title red"><a href="#">Artistas</a></h1>
+				<div class="postcard__subtitle small">
+					<time datetime="2020-05-25 12:00:00">
+						<i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+					</time>
+				</div>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">En este espacio, tendrás la oportunidad de explorar a diversos artistas colombianos, conocer sus fascinantes biografías y descubrir los datos más relevantes de sus carreras. Sumérgete en el vibrante mundo del arte colombiano y descubre la riqueza creativa que ha dado forma a esta nación.</div>
+				<ul class="postcard__tagbox">
+					<li class="tag__item"><i class="fas fa-tag mr-2"></i>Podcast</li>
+					<li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+					<li class="tag__item play red">
+						<a href="#"><i class="fas fa-play mr-2"></i>Play Episode</a>
+					</li>
+				</ul>
+			</div>
+		</article>
+		<article class="postcard light green">
+			<a class="postcard__img_link" href="#">
+				<img class="postcard__img" src="https://picsum.photos/500/501" alt="Image Title" />
+			</a>
+			<div class="postcard__text t-dark">
+				<h1 class="postcard__title green"><a href="#">Movimientos</a></h1>
+				<div class="postcard__subtitle small">
+					<time datetime="2020-05-25 12:00:00">
+						<i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+					</time>
+				</div>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">Este espacio te brinda la oportunidad de sumergirte en los movimientos artísticos de Colombia, explorando sus orígenes, evolución y contribuciones a la escena creativa. Descubre cómo estos movimientos han influenciado a los artistas colombianos y han dejado una marca indeleble en el panorama artístico del país.</div>
+				<ul class="postcard__tagbox">
+					<li class="tag__item"><i class="fas fa-tag mr-2"></i>Podcast</li>
+					<li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+					<li class="tag__item play green">
+						<a href="#"><i class="fas fa-play mr-2"></i>Play Episode</a>
+					</li>
+				</ul>
+			</div>
+		</article>
+		<article class="postcard light yellow">
+			<a class="postcard__img_link" href="#">
+				<img class="postcard__img" src="https://picsum.photos/501/501" alt="Image Title" />
+			</a>
+			<div class="postcard__text t-dark">
+				<h1 class="postcard__title yellow"><a href="#">Museos</a></h1>
+				<div class="postcard__subtitle small">
+					<time datetime="2020-05-25 12:00:00">
+						<i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+					</time>
+				</div>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">En este sitio, podrás adentrarte en el mundo de los museos que resguardan las valiosas obras de arte colombianas. Explora la riqueza cultural y artística que albergan estos espacios, conoce sus colecciones, y descubre cómo contribuyen a preservar y exhibir el legado creativo de Colombia.</div>
+				<ul class="postcard__tagbox">
+					<li class="tag__item"><i class="fas fa-tag mr-2"></i>Podcast</li>
+					<li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+					<li class="tag__item play yellow">
+						<a href="#"><i class="fas fa-play mr-2"></i>Play Episode</a>
+					</li>
+				</ul>
+			</div>
+		</article>
+	</div>
+</section>
+</body>
+</html>
+{% endblock content %}
